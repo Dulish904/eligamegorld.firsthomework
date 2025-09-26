@@ -1,4 +1,4 @@
-public interface BaseMethodShape {
+interface BaseMethodShape {
 
     /**
      * Обчислює площу Фігури.
