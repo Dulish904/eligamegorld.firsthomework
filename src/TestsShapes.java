@@ -3,7 +3,7 @@
  * Базова перевірка правильного виконання методів.
  */
 
-public class TestsShapes {
+class TestsShapes {
     public static void getNameShape(Shape shape) {
         System.out.println(shape);
     }

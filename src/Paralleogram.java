@@ -6,55 +6,61 @@ import java.util.Objects;
  */
 
 public class Paralleogram extends Shape {
-    private int leftSide;
-    private int rightSide;
-    private int angle;
+    private double base;
+    private double side;
+    private double angle;
 
-    public Paralleogram(String name, int leftSide, int rightSide, int angle) {
+    public Paralleogram(String name, double base, double side, double angle) {
         super(name);
-        this.leftSide = leftSide;
-        this.rightSide = rightSide;
+        this.base = base;
+        this.side = side;
         this.angle = angle;
     }
 
     @Override
     public double shapeArea() {
-        return leftSide * rightSide * Math.sin(Math.toRadians(angle));
+        return base * side * Math.sin(Math.toRadians(angle));
     }
 
-    public int getLeftSide() {
-        return leftSide;
+    @Override
+    public double shapePerimetr() {
+        return 2 * (base * side);
     }
 
-    public void setLeftSide(int leftSide) {
-        this.leftSide = leftSide;
+    public void setBase(double base) {
+        this.base = base;
     }
 
-    public int getRightSide() {
-        return rightSide;
+    public double getBase() {
+        return base;
     }
 
-    public void setRightSide(int rightSide) {
-        this.rightSide = rightSide;
+    public void setSide(double side) {
+        this.side = side;
     }
 
-    public int getAngle() {
-        return angle;
+    public double getSide() {
+        return side;
     }
 
-    public void setAngle(int angle) {
+    public void setAngle(double angle) {
         this.angle = angle;
+    }
+
+    public double getAngle() {
+        return angle;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Paralleogram that = (Paralleogram) o;
-        return leftSide == that.leftSide && rightSide == that.rightSide && angle == that.angle;
+        Paralleogram paralleogram = (Paralleogram) o;
+        return base == paralleogram.base && side == paralleogram.side && angle == paralleogram.angle;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(leftSide, rightSide, angle);
+        return Objects.hash(base, side, angle);
     }
+
 }

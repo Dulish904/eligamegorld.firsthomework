@@ -6,11 +6,11 @@ import java.util.Objects;
  */
 
 public class Triangle extends Shape {
-    private int leftSide;
-    private int rightSide;
-    private int bottomSide;
+    private double leftSide;
+    private double rightSide;
+    private double bottomSide;
 
-    public Triangle(String name, int leftSide, int rightSide, int bottomSide) {
+    public Triangle(String name, double leftSide, double rightSide, double bottomSide) {
         super(name);
         this.leftSide = leftSide;
         this.rightSide = rightSide;
@@ -23,27 +23,32 @@ public class Triangle extends Shape {
         return Math.sqrt(p * (p - leftSide) * (p - rightSide) * (p - bottomSide));
     }
 
-    public int getLeftSide() {
+    @Override
+    public double shapePerimetr() {
+        return leftSide + rightSide + bottomSide;
+    }
+
+    public double getLeftSide() {
         return leftSide;
     }
 
-    public void setLeftSide(int leftSide) {
+    public void setLeftSide(double leftSide) {
         this.leftSide = leftSide;
     }
 
-    public int getRightSide() {
+    public double getRightSide() {
         return rightSide;
     }
 
-    public void setRightSide(int rightSide) {
+    public void setRightSide(double rightSide) {
         this.rightSide = rightSide;
     }
 
-    public int getBottomSide() {
+    public double getBottomSide() {
         return bottomSide;
     }
 
-    public void setBottomSide(int bottomSide) {
+    public void setBottomSide(double bottomSide) {
         this.bottomSide = bottomSide;
     }
 

@@ -6,69 +6,54 @@ import java.util.Objects;
  */
 
 public class Quad extends Shape {
-    private int leftSide;
-    private int rightSide;
-    private int upperSide;
-    private int bottomSide;
+    private double height;
+    private double width;
 
-    public Quad(String name, int leftSide, int rightSide, int upperSide, int bottomSide) {
+    public Quad(String name, double height, double width) {
         super(name);
-        this.leftSide = leftSide;
-        this.rightSide = rightSide;
-        this.upperSide = upperSide;
-        this.bottomSide = bottomSide;
+        this.height = height;
+        this.width = width;
     }
 
     @Override
     public double shapeArea() {
-        return correctQuad() ? (double) leftSide * leftSide: -1;
+        return correctQuad() ? height * height: -1;
+    }
+
+    @Override
+    public double shapePerimetr() {
+        return height * width;
     }
 
     public boolean correctQuad() {
-        return leftSide == rightSide & leftSide == upperSide & leftSide == bottomSide;
+        return height == width;
     }
 
-    public int getLeftSide() {
-        return leftSide;
+    public double getHeight() {
+        return height;
     }
 
-    public void setLeftSide(int leftSide) {
-        this.leftSide = leftSide;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
-    public int getRightSide() {
-        return rightSide;
+    public double getWidth() {
+        return width;
     }
 
-    public void setRightSide(int rightSide) {
-        this.rightSide = rightSide;
-    }
-
-    public int getUpperSide() {
-        return upperSide;
-    }
-
-    public void setUpperSide(int upperSide) {
-        this.upperSide = upperSide;
-    }
-
-    public int getBottomSide() {
-        return bottomSide;
-    }
-
-    public void setBottomSide(int bottomSide) {
-        this.bottomSide = bottomSide;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Quad quad = (Quad) o;
-        return leftSide == quad.leftSide && rightSide == quad.rightSide && upperSide == quad.upperSide && bottomSide == quad.bottomSide;
+        return width == quad.width && height == quad.height;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(leftSide, rightSide, upperSide, bottomSide);
+        return Objects.hash(width, height);
     }
 }

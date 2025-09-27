@@ -3,8 +3,8 @@
  * Містить назву фігури.
  */
 
-public class Shape implements BaseMethodShape {
-    private String name;
+abstract  class Shape {
+    private final String name;
 
     public Shape(String name) {
         this.name = name;
@@ -14,8 +14,8 @@ public class Shape implements BaseMethodShape {
         return -1.0;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public double shapePerimetr() {
+        return -1.0;
     }
 
     public String getName() {
