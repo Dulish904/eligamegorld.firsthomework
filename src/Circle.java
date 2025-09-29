@@ -5,11 +5,11 @@ import java.util.Objects;
  * Має радіус.
  */
 public class Circle extends Shape {
-    private int radius;
+    private double radius;
     private int centerX;
     private int centerY;
 
-    public Circle(String name, int radius, int centerX, int centerY) {
+    public Circle(String name, double radius, int centerX, int centerY) {
         super(name);
         this.radius = radius;
         this.centerX = centerX;
@@ -21,15 +21,20 @@ public class Circle extends Shape {
         return Math.PI * radius * radius;
     }
 
-    public int getDiameter() {
+    @Override
+    public double shapePerimetr() {
+        return Math.PI * (radius * 2);
+    }
+
+    public double getDiameter() {
         return 2 * radius;
     }
 
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
 
-    public void setRadius(int radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
 
@@ -53,7 +58,7 @@ public class Circle extends Shape {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Circle circle = (Circle) o;
-        return radius == circle.radius && centerX == circle.centerX && centerY == circle.centerY;
+        return radius == circle.radius;
     }
 
     @Override

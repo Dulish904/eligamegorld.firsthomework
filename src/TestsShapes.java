@@ -1,9 +1,11 @@
 /**
  * Клас Тестування Фігур.
  * Базова перевірка правильного виконання методів.
+ * Методи безглузді як і сама назва класу але свою задачу вона виконує.
  */
 
 class TestsShapes {
+
     public static void getNameShape(Shape shape) {
         System.out.println(shape);
     }

@@ -10,13 +10,9 @@ abstract  class Shape {
         this.name = name;
     }
 
-    public double shapeArea() {
-        return -1.0;
-    }
+    abstract double shapeArea();
 
-    public double shapePerimetr() {
-        return -1.0;
-    }
+    abstract double shapePerimetr();
 
     public String getName() {
         return name;

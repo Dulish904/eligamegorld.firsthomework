@@ -5,70 +5,57 @@ import java.util.Objects;
  * Містить назву, та 4 сторони.
  */
 
-public class Rectangle extends Shape {
-    private int leftSide;
-    private int rightSide;
-    private int upperSide;
-    private int bottomSide;
+class Rectangle extends Shape {
+    private double width;
+    private double height;
 
-    public Rectangle(String name, int leftSide, int rightSide, int upperSide, int bottomSide) {
+    public Rectangle(String name, double width, double height) {
         super(name);
-        this.leftSide = leftSide;
-        this.rightSide = rightSide;
-        this.upperSide = upperSide;
-        this.bottomSide = bottomSide;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
     public double shapeArea() {
-        return correctQuad() ? (double) leftSide * upperSide: -1;
+        return width * height;
     }
 
-    public boolean correctQuad() {
-        return leftSide == rightSide & upperSide == bottomSide;
+    @Override
+    public double shapePerimetr() {
+        return width * 2 + height * 2;
     }
 
-    public int getLeftSide() {
-        return leftSide;
+    public void turnOver() {
+        double buff = getWidth();
+        setWidth(getHeight());
+        setHeight(buff);
     }
 
-    public void setLeftSide(int leftSide) {
-        this.leftSide = leftSide;
+    public double getWidth() {
+        return width;
     }
 
-    public int getRightSide() {
-        return rightSide;
+    public void setWidth(double width) {
+        this.width = width;
     }
 
-    public void setRightSide(int rightSide) {
-        this.rightSide = rightSide;
+    public double getHeight() {
+        return height;
     }
 
-    public int getUpperSide() {
-        return upperSide;
-    }
-
-    public void setUpperSide(int upperSide) {
-        this.upperSide = upperSide;
-    }
-
-    public int getBottomSide() {
-        return bottomSide;
-    }
-
-    public void setBottomSide(int bottomSide) {
-        this.bottomSide = bottomSide;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Rectangle rectangle = (Rectangle) o;
-        return leftSide == rectangle.leftSide && rightSide == rectangle.rightSide && upperSide == rectangle.upperSide && bottomSide == rectangle.bottomSide;
+        return Double.compare(width, rectangle.width) == 0 && Double.compare(height, rectangle.height) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(leftSide, rightSide, upperSide, bottomSide);
+        return Objects.hash(width, height);
     }
 }
